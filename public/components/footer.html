@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Map CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+    <Footer class="relative w-full">
+
+        <div class="absolute flex items-center justify-between w-full max-w-[1820px] mx-auto">
+            <div class="absolute top-15 left-135">
+                <img src="/Images/footer-logo.png" alt="footer-logo">
+            </div>
+            <div class="flex gap-x-10 absolute top-15 right-10">
+                <img src="/Images/facebook.png" alt="facebook" class="cursor-pointer">
+                <img src="/Images/tiktok.png" alt="tiktok" class="cursor-pointer">
+                <img src="/Images/youtube.png" alt="youtube" class="cursor-pointer">
+                <img src="/Images/instagram-icon.png" alt="instagram-icon" class="cursor-pointer">
+            </div>
+        </div>
+
+        <div class="w-full bg-black text-white flex  font-Manrope">
+
+
+
+            <!--  Map integration -->
+            <div class="relative w-[700px] h-[575px]  overflow-hidden">
+
+                <!-- Map -->
+                <div id="map" class="absolute inset-0 z-0"></div>
+
+                <!-- Search Bar -->
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-50 w-full px-5">
+                    <input type="text" placeholder="Enter your location"
+                        class="pr-30 pl-10 py-2 rounded-full bg-[#c1ac6d] text-[#2e102c] placeholder-[#2e102c] focus:outline-none text-[20px] font-medium" />
+                    <button
+                        class="absolute px-5 py-2 rounded-full bg-white text-black text-[20px] font-medium whitespace-nowrap right-14 cursor-pointer">
+                        Find Avana
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lists -->
+
+            <div class="flex flex-col w-full mx-auto">
+                <div class=" flex items-start justify-around">
+                    <div class=" mt-30">
+
+                        <p class="text-[20px] font-extralight leading-[35px] mt-5">Main Location <br /> 8700 W
+                            Flagler St Suite
+                            250,<br /> Miami, FL 33174</p>
+                        <p class="text-[20px] font-extralight leading-[35px] text-[#c1ac6d] mt-5">
+                            info@avanaplasticsurgery.com <br /> (305) 501-6000</p>
+
+
+                    </div>
+
+                    <div class="flex flex-col items-start justify-start gap-y-5 mt-35">
+                        <p class="text-xl font-semibold">Quick Links</p>
+                        <ul class="text-xl font-extralight leading-[35px] cursor-pointer">
+                            <li>Home</li>
+                            <li>About Us</li>
+                            <li>Resources </li>
+                            <li>Locations </li>
+                            <li>Financing </li>
+                            <li>Contact </li>
+                            <li>Locations </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col items-start justify-start gap-y-5 mt-35">
+                        <p class="text-xl font-semibold">Procedures</p>
+                        <ul class="text-xl font-extralight leading-[35px] cursor-pointer">
+                            <li>Body </li>
+                            <li>Breast </li>
+                            <li>face </li>
+                            <li>Vaginal </li>
+                            <li>Non </li>
+                            <li>Surgical </li>
+                            <li>Skin </li>
+                            <li>Men </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col items-start justify-start gap-y-5 mt-35">
+                        <p class="text-xl font-semibold">Resources</p>
+                        <ul class="text-xl font-extralight leading-[35px] cursor-pointer">
+                            <li>Videos </li>
+                            <li>Out of Town </li>
+                            <li>Blog </li>
+                            <li>Frequenty Questions </li>
+                            <li>Calculate your BMI </li>
+                            <li>Post op massage </li>
+                            <li>Self Salvage </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col items-start justify-start gap-y-5 mt-35">
+                        <p class="text-xl font-semibold">Specials</p>
+                        <ul class="text-xl font-extralight leading-[35px] cursor-pointer">
+                            <li>Special Offers </li>
+                            <li class="mt-5"><button
+                                    class="bg-[#c1ac6d] px-10 py-3 rounded-full font-extrabold text-black text-xl cursor-pointer">Free
+                                    consultation</button></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div
+                    class="flex items-center justify-between w-full mx-auto mt-10 py-5 px-10 text-[#8c778b] border-t border-[#8c778b]">
+                    <p class="text-[17px] font-extralight">© 2023 Avana Plastic Surgery. All rights
+                        reserved.</p>
+                    <div class="flex items-center justify-center gap-x-5">
+                        <a href="#" class="text-[17px] font-extralight">Accessibility/ | Privacy Policy/ | SMS | Terms
+                            and Conditions | Disclaimer</a>
+                        <!-- <span class="text-[20px] font-extralight">|</span>
+                        <a href="#" class="text-[20px] font-extralight">Terms of Use</a> -->
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </Footer>
+
+</body>
+
+</html>
+
+<!-- Map Integration script -->
+
+<script>
+    // Initialize Leaflet map
+    var map = L.map('map', {
+        zoomControl: false // Hide default zoom controls
+    }).setView([25.7617, -80.1918], 12); // Miami coords
+
+    // Dark tile layer from Carto
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        // attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        // subdomains: 'abcd',
+        maxZoom: 20
+    }).addTo(map);
+
+    // Example marker
+    // L.marker([25.7617, -80.1918])
+    //     .addTo(map)
+    //     .bindPopup('<b>Miami</b>')
+    //     .openPopup();
+</script>

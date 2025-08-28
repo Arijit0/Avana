@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+@import "tailwindcss";
+
+/* Font family for Tailwind CSS  */
+@theme {
+  --font-Manrope: "Manrope", sans-serif;
+  --color-text-black: oklch(23.5% 0 0);
+}
+
+@layer utilities {
+  /* Banner 3 Slider-1 style  Hide scrollbar visually */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
